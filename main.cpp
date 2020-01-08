@@ -68,11 +68,11 @@ public:
         sold=x;
     }
 
-    virtual void retragere()
+    virtual void retragere(double, string)
     {
         //istoric = istoric + to_string(sold);
     }
-    virtual void depunere() {}
+    virtual void depunere(double, string) {}
     virtual void citire()
     {
         cout<<"detinator: ";
@@ -288,20 +288,22 @@ void ContCurrent:: depunere (double bani, string locatie)
 
 
 template <class T>
-class GestionareConturi
+class GestionareConturiManager
 {
 
     vector <T*> vectorConturi;
     unordered_map<int, vector <string> > umap;
     static int index;
 public:
-    GestionareConturi() {};
-    ~GestionareConturi();
+    GestionareConturiManager() {};
+    ~GestionareConturiManager();
     void addCont()
     {
-        cout<<"\n 1 pt Cont curent, 2 pt ContEconomii:   ";
-        int man;
 
+        int man=1;
+while (man )
+       {
+cout<<"\n 0 pt STOP, 1 pt Cont curent, 2 pt ContEconomii:   ";
         cin>>man;
         if (man==1)
         {
@@ -322,6 +324,30 @@ public:
 
         }
 
+        }
+
+    }
+
+    void operatiiPeConturi(){
+
+        for (int i=0; i< index; i++)
+        {
+            if (typeid(*vectorConturi[i]) == typeid(ContCurrent))
+                {
+                    cout<<"Se face o retragere de 100 \n";
+                    vectorConturi[i]->retragere(100, "ING");
+                    cout<<"\n Se face o depunere de 150 \n";
+                    vectorConturi[i]->depunere(150, "ING");
+
+
+                }
+                else
+                {
+                ;
+                }
+            cout<<endl;
+        }
+
     }
 
     void afisareConturi()
@@ -337,19 +363,17 @@ public:
 
 
 };
-template <class T> int GestionareConturi<T>::index=0;
+template <class T> int GestionareConturiManager<T>::index=0;
 
-template <> ContEconomii AfisareConturiDobandaAn(ContEconomii a)
-{
-
-}
 
 int main()
 {
 
-    GestionareConturi<Cont> *Banca1 = new GestionareConturi<Cont>;
+    GestionareConturiManager<Cont> *Banca1 = new GestionareConturiManager<Cont>;
+
     Banca1->addCont();
-     Banca1->addCont();
+
+     Banca1->operatiiPeConturi();
     Banca1->afisareConturi();
 
 
