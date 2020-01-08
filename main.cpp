@@ -284,9 +284,55 @@ void ContCurrent:: depunere (double bani, string locatie)
         sold = sold + bani - PENALIZARE;
     istoric = istoric + (to_string(sold));
 }
+/*
+asta pt general
+template<class T>
+class NUme{
+
+public:
+
+    void operatiiPeConturi(){
+
+        for (int i=0; i< index; i++)
+        {
+            if (typeid(*vectorConturi[i]) == typeid(ContCurrent))
+                {
+                    cout<<"Se face o retragere de 100 \n";
+                    vectorConturi[i]->retragere(100, "ING");
+                    cout<<"\n Se face o depunere de 150 \n";
+                    vectorConturi[i]->depunere(150, "ING");
 
 
+                }
+                else
+                {
+                ;
+                }
+            cout<<endl;
+        }
 
+    }
+};
+
+
+si pt specializare
+
+template<>
+class NUme<ContEconomii>{
+
+public:
+
+    void operatiiPeConturi(){
+
+        operatii pt cont de economii
+            cout<<endl;
+        }
+
+    }
+};
+*/
+
+/// mai sus niste scheme
 template <class T>
 class GestionareConturiManager
 {
