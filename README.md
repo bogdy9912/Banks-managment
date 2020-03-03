@@ -1,1 +1,1 @@
-# An algorith that storege information about the clients of a bank
+# An algorith that storege information about the clients of differents banks, and also calculate their interest rate and keeps an history of their transactions. It represents a system of managment. It's practically an online group of banks
